@@ -1,12 +1,5 @@
 package com.blobs.view;
 
-import javafx.application.Platform;
-import javafx.embed.swing.JFXPanel;
-import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
-import javafx.scene.media.MediaView;
 
 import javax.swing.*;
 
@@ -22,11 +15,41 @@ import java.net.MalformedURLException;
 /**
  * This is where the start screen of the UI should be.
  */
-public class JStartPanel extends JComponent{
-
-    /**
-     * The default constructor of the class, yay!
-     */
+public class JStartPanel extends JComponent implements MouseListener {
+	JButton startbutton;
+	/**
+	 * The default constructor of the class, yay!
+	 */
 	public JStartPanel() {
+		startbutton = new JButton("Start Game");
+		startbutton.setBounds(0, 0, 300, 300);
+		startbutton.addMouseListener(this);
+		this.add(startbutton);
+
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		MVC.getController().startGame();
+		startbutton.setBackground(new Color(255));
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+
 	}
 }
